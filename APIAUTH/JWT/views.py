@@ -78,3 +78,10 @@ class ArticleView(APIView):
         article = get_object_or_404(Article.objects.all(),pk=pk)
         article.delete()
         return Response({"messgae":"the  article is deleted succesfully" })
+
+class readArticle(APIView):
+    
+    def get(self, request, pk):
+        article = get_object_or_404(Article.objects.all(), pk=pk)
+        serializer = ArticleSerializer(article)
+        return Response({'articles':serializer.data})

@@ -18,6 +18,9 @@ class ArticleSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=150)
     description = serializers.CharField()
     body = serializers.CharField()
+
+    ## we are using the author id and it will be matched with the 
+    ## author column author id
     author_id = serializers.IntegerField()
 
     ## for creating the data 
